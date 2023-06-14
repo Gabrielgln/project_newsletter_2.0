@@ -381,28 +381,17 @@ body {
 
     <label for="email"></label>
     <input type="email" placeholder="Digite seu email" id="email" name="email" required><br>
-    
-    <div id="popup" class="popup hidden">
-      Email inválido! Tente novamente.
-    </div>
-
-    <div id="popup-checkbox" class="popup hidden">
-      Confirme a leitura dos termos
-    </div>
 
     <div class="box"></div>
     <input type="checkbox" id="myCheckbox" name="myCheckbox">
 
-    <button type="submit" onclick="exibirPopupCheck()" class="btn-cadastrar">Entrar</button>
+    <button type="submit" class="btn-cadastrar">Entrar</button>
     <a href="{% url 'cancelar' %}" class="cancelar">Cancelar registro</a>
 
   </form>
 </body>
 
   <script>
-    function exibirPopupCheck() {
-    const checkbox = document.getElementById("myCheckbox");
-  
     if (!checkbox.checked) {
       var popup = document.getElementById("popup-checkbox");
       popup.classList.remove("hidden");
@@ -410,30 +399,7 @@ body {
         popup.classList.add("hidden");
       }, 3000);
     }
-
   return checkbox.checked;
-}
-function exibirPopup() {
-    var popup = document.getElementById("popup");
-    popup.classList.remove("hidden");
-    
-    setTimeout(function() {
-      popup.classList.add("hidden");
-    }, 3000); }
-  
-function exibirPopupCheck() {
-    var popup = document.getElementById("popup-checkbox");
-    popup.classList.remove("hidden");
-      
-      setTimeout(function() {
-        popup.classList.add("hidden");
-      }, 3000); }
-
-function validarEmail(email) {
-    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
 function verificarCheckboxSelecionado(idCheckbox) {
     const checkbox = document.getElementById(idCheckbox);
     return checkbox.checked;
