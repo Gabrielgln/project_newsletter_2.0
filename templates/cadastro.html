@@ -375,29 +375,28 @@
     <input type="text" placeholder="Digite seu nome" id="nome" name="nome" required><br>
 
     <label for="email"></label>
-    <input type="email" placeholder="Digite seu email" id="email" name="email" required><br>
+    <input type="text" placeholder="Digite seu email" id="email" name="email" required><br>
 
     <div class="box"></div>
     <input type="checkbox" id="myCheckbox" name="myCheckbox">
 
-    <button type="submit" class="btn-cadastrar">Entrar</button>
+    <button type="submit" class="btn-cadastrar" onclick="cadastrar()">Entrar</button>
     <a href="{% url 'cancelar' %}" class="cancelar">Cancelar registro</a>
 
   </form>
 </body>
 
   <script>
-    if (!checkbox.checked) {
-      var popup = document.getElementById("popup-checkbox");
-      popup.classList.remove("hidden");
-      setTimeout(function() {
-        popup.classList.add("hidden");
-      }, 3000);
+    function cadastrar(){
+      var checkbox = document.getElementById("myCheckbox");
+      var nome = document.getElementById("nome").value;
+      var email = document.getElementById("email").value;
+      if(checkbox.checked && email && nome){
+        alert("Parabéns, você foi cadastrado com sucesso!");
+      }
+      else{
+        alert('Preencha todos os campos!');
+      }
     }
-  return checkbox.checked;
-function verificarCheckboxSelecionado(idCheckbox) {
-    const checkbox = document.getElementById(idCheckbox);
-    return checkbox.checked;
-  }
   </script>
 </html>
