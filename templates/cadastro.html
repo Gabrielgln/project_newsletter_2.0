@@ -387,15 +387,24 @@
 </body>
 
   <script>
+    
+    function validarEmail(email) {
+      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
     function cadastrar(){
       var checkbox = document.getElementById("myCheckbox");
       var nome = document.getElementById("nome").value;
       var email = document.getElementById("email").value;
-      if(checkbox.checked && email && nome){
-        alert("Parabéns, você foi cadastrado com sucesso!");
+
+      var validaEmail = validarEmail(email);
+
+      if(checkbox.checked && email && nome && validaEmail){
+        alert("Parabéns, você foi cadastrado com sucesso!"); 
       }
       else{
-        alert('Preencha todos os campos!');
+        alert('Informações inválidas!');
       }
     }
   </script>
